@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • demspacesR</title>
+<title>demspacesR: Functions for the Democratic Spaces Project — demspacesR-package • demspacesR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="demspacesR: Functions for the Democratic Spaces Project — demspacesR-package" />
+<meta property="og:description" content="Functions to support the Democratic Spaces project." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -117,55 +118,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      
+    <h1>demspacesR: Functions for the Democratic Spaces Project</h1>
+    
+    <div class="hidden name"><code>demspacesR-package.Rd</code></div>
     </div>
 
-    <div id="demspacesr-023" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.3">
-<a href="#demspacesr-023" class="anchor"></a>demspacesR 0.2.3</h1>
-<p>Development in February 2021.</p>
-<p>Moved package to <strong>vdeminstitute</strong> GitHub account; package renamed from <strong>demspaces</strong> to <strong>demspacesR</strong></p>
-</div>
-    <div id="demspacesr-02" class="section level1">
-<h1 class="page-header" data-toc-text="0.2">
-<a href="#demspacesr-02" class="anchor"></a>demspacesR 0.2</h1>
-<p>Development in November 2019.</p>
-<ul>
-<li>Added a tuner for <code><a href="../reference/ds_rf.html">ds_rf()</a></code> that picks optimal <code>mtry</code> values.</li>
-</ul>
-</div>
-    <div id="demspacesr-01" class="section level1">
-<h1 class="page-header" data-toc-text="0.1">
-<a href="#demspacesr-01" class="anchor"></a>demspacesR 0.1</h1>
-<p>Development in October 2019.</p>
-<ul>
-<li>
-<code><a href="../reference/reg_logreg.html">reg_logreg()</a></code> and <code><a href="../reference/ds_reg_logreg.html">ds_reg_logreg()</a></code> implement a self-tuning regularized logistic regression model based on the <strong>glmnet</strong> package. Tuning is performed via cross-validation and successively picks alpha and then lambda values.</li>
-<li>
-<code><a href="../reference/rf.html">rf()</a></code> and <code><a href="../reference/ds_rf.html">ds_rf()</a></code> implement a random forest probability tree model using the <strong>ranger</strong> package.</li>
-</ul>
-</div>
-    <div id="demspacesr-001" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.1">
-<a href="#demspacesr-001" class="anchor"></a>demspacesR 0.0.1</h1>
-<p>Initial version in September 2019. This had the following models:</p>
-<ul>
-<li>
-<code><a href="../reference/logistic_reg.html">logistic_reg()</a></code> is a standard logistic regression model, with <code><a href="../reference/ds_logistic_reg.html">ds_logistic_reg()</a></code> as a wrapper for modeling democratic spaces. It includes an option to standardize features prior to model estimation (“normalize” argument), using a standardizer function made by <code><a href="../reference/make_standardizer.html">make_standardizer()</a></code>.</li>
-<li>
-<code><a href="../reference/logistic_reg_featx.html">logistic_reg_featx()</a></code> and <code><a href="../reference/ds_logistic_reg_featx.html">ds_logistic_reg_featx()</a></code> are standard logistic regression models with a feature extraction pre-processing step for the input feature data. This uses PCA (the only method implemented currently) to reduce the number of numeric input features to 5, via <code><a href="../reference/make_extract_features.html">make_extract_features()</a></code>.</li>
-</ul>
-<p>The GitHub repo, but not package, includes a template for adding new models in <code>add_new_model.R</code>.</p>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Functions to support the Democratic Spaces project.</p>
+    </div>
 
+
+
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p><strong>Maintainer</strong>: Andreas Beger <a href='mailto:adbeger@gmail.com'>adbeger@gmail.com</a> (<a href='https://orcid.org/0000-0003-1883-3169'>ORCID</a>)</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 
