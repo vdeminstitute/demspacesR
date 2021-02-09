@@ -1,0 +1,17 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data-raw$
+^Makefile$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^README\.Rmd$
+^\.travis\.yml$
+^codecov\.yml$
+^man-roxygen$
+
+# helper script for adding new models
+^add_new_model.R$
+
+^misc$

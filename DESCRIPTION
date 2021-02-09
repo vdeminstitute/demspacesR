@@ -1,0 +1,38 @@
+Package: demspaces
+Title: Functions for the Democratic Spaces Project
+Version: 0.2.3
+Authors@R: 
+    person(given = "Andreas",
+           family = "Beger",
+           role = c("aut", "cre"),
+           email = "adbeger@gmail.com",
+           comment = c(ORCID = "0000-0003-1883-3169"))
+Description: Functions to support the Democratic Spaces project. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Depends: 
+    R (>= 2.10)
+Imports: 
+    dplyr,
+    recipes,
+    magrittr,
+    modeldata,
+    rlang,
+    tibble,
+    yardstick,
+    stringr,
+    tidyr
+Suggests: 
+    covr,
+    pkgdown,
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown,
+    glmnet,
+    ggplot2,
+    scales,
+    ranger
+VignetteBuilder: knitr
