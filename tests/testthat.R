@@ -1,4 +1,4 @@
 library(testthat)
-library(demspaces)
+library(demspacesR)
 
-test_check("demspaces")
+test_check("demspacesR")

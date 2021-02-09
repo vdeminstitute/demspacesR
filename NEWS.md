@@ -1,17 +1,23 @@
-# demspaces 0.2 
+# demspacesR 0.2.3
+
+Development in February 2021. 
+
+Moved package to **vdeminstitute** GitHub account; package renamed from **demspaces** to **demspacesR**
+
+# demspacesR 0.2 
 
 Development in November 2019.
 
 * Added a tuner for `ds_rf()` that picks optimal `mtry` values. 
 
-# demspaces 0.1
+# demspacesR 0.1
 
 Development in October 2019. 
 
 * `reg_logreg()` and `ds_reg_logreg()` implement a self-tuning regularized logistic regression model based on the **glmnet** package. Tuning is performed via cross-validation and successively picks alpha and then lambda values. 
 * `rf()` and `ds_rf()` implement a random forest probability tree model using the **ranger** package. 
 
-# demspaces 0.0.1
+# demspacesR 0.0.1
 
 Initial version in September 2019. This had the following models:
 
