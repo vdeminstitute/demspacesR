@@ -12,11 +12,12 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# demspaces
+
+# demspacesR
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/andybega/demspaces.svg?branch=master)](https://travis-ci.com/andybega/demspaces)
-[![Codecov test coverage](https://codecov.io/gh/andybega/demspaces/branch/master/graph/badge.svg)](https://codecov.io/gh/andybega/demspaces?branch=master)
+[![R build status](https://github.com/vdeminstitute/demspacesR/workflows/R-CMD-check/badge.svg)](https://github.com/vdeminstitute/demspacesR/actions)
+[![Codecov test coverage](https://codecov.io/gh/vdeminstitute/demspacesR/branch/master/graph/badge.svg)](https://codecov.io/gh/vdeminstitute/demspacesR?branch=main)
 <!-- badges: end -->
 
 demspaces contains helper functions for the Democratic Spaces Barometer project; see [andybega/democratic-spaces](https://github.com/andybega/democratic-spaces).
@@ -29,13 +30,13 @@ Since this package is specific to the democratic spaces project, it will not end
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("andybega/demspaces")
+remotes::install_github("vdeminstitute/demspacesR")
 ```
 
 ## Example
 
 ```{r}
-library("demspaces")
+library("demspacesR")
 
 data("states")
 

@@ -1,14 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# demspaces
+# demspacesR
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.com/andybega/demspaces.svg?branch=master)](https://travis-ci.com/andybega/demspaces)
+[![R build
+status](https://github.com/vdeminstitute/demspacesR/workflows/R-CMD-check/badge.svg)](https://github.com/vdeminstitute/demspacesR/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/andybega/demspaces/branch/master/graph/badge.svg)](https://codecov.io/gh/andybega/demspaces?branch=master)
+coverage](https://codecov.io/gh/vdeminstitute/demspacesR/branch/master/graph/badge.svg)](https://codecov.io/gh/vdeminstitute/demspacesR?branch=main)
 <!-- badges: end -->
 
 demspaces contains helper functions for the Democratic Spaces Barometer
@@ -25,15 +25,15 @@ with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("andybega/demspaces")
+remotes::install_github("vdeminstitute/demspacesR")
 ```
 
 ## Example
 
 ``` r
-library("demspaces")
+library("demspacesR")
 #> 
-#> Attaching package: 'demspaces'
+#> Attaching package: 'demspacesR'
 #> The following object is masked from 'package:stats':
 #> 
 #>     rf
