@@ -1,6 +1,6 @@
 Package: demspacesR
 Title: Functions for the Democratic Spaces Project
-Version: 0.2.3
+Version: 0.2.4
 Authors@R: 
     person(given = "Andreas",
            family = "Beger",

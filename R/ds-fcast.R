@@ -39,6 +39,8 @@ score_ds_fcast <- function(x, truth_data) {
 
   suppressWarnings({
   stats <- list(
+    "Log-loss up"   = safe_mn_log_loss(x$up, x$p_up),
+    "Log-loss down" = safe_mn_log_loss(x$down, x$p_down),
     "ROC-AUC up"   = safe_roc_auc(x$up, x$p_up),
     "ROC-AUC down" = safe_roc_auc(x$down, x$p_down),
     "PR-AUC up"    = safe_roc_pr(x$up, x$p_up) ,
@@ -59,6 +61,12 @@ safe_roc_auc <- function(y, phat) {
 safe_roc_pr <- function(y, phat) {
   tryCatch({
     yardstick::pr_auc_vec(y, phat)
+  }, error = function(e) NA_real_)
+}
+
+safe_mn_log_loss <- function(y, phat) {
+  tryCatch({
+    yardstick::mn_log_loss_vec(y, phat)
   }, error = function(e) NA_real_)
 }
 

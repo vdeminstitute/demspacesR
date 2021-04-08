@@ -1,8 +1,9 @@
-# demspacesR 0.2.3
+# demspacesR dev
 
 Development in February 2021. 
 
-Moved package to **vdeminstitute** GitHub account; package renamed from **demspaces** to **demspacesR**
+- Moved package to **vdeminstitute** GitHub account; package renamed from **demspaces** to **demspacesR**
+- Added mean log loss to `score_ds_fcast()`. This is a better metric for comparing models to each other than AUC-ROC/PR. 
 
 # demspacesR 0.2 
 
