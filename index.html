@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">demspacesR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -74,41 +70,41 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="demspacesr" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#demspacesr" class="anchor"></a>demspacesR</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="demspacesr">demspacesR<a class="anchor" aria-label="anchor" href="#demspacesr"></a>
+</h1></div>
 <!-- badges: start -->
 
-<p>demspaces contains helper functions for the Democratic Spaces Barometer project; see <a href="https://github.com/andybega/democratic-spaces">andybega/democratic-spaces</a>.</p>
+<p>demspaces contains helper functions for the Democratic Spaces Barometer project; see <a href="https://github.com/andybega/democratic-spaces" class="external-link">andybega/democratic-spaces</a>.</p>
 <p><em>(Note to self: the private dev repo is at andybega/closing-spaces)</em></p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>Since this package is specific to the democratic spaces project, it will not end up on CRAN. Install from <a href="https://github.com/">GitHub</a> instead, with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>Since this package is specific to the democratic spaces project, it will not end up on CRAN. Install from <a href="https://github.com/" class="external-link">GitHub</a> instead, with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"vdeminstitute/demspacesR"</span><span class="op">)</span></code></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"vdeminstitute/demspacesR"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"demspacesR"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"demspacesR"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'demspacesR'</span>
 <span class="co">#&gt; The following object is masked from 'package:stats':</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     rf</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"states"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"states"</span><span class="op">)</span>
 
 <span class="va">mdl</span>   <span class="op">&lt;-</span> <span class="fu"><a href="reference/ds_logistic_reg.html">ds_logistic_reg</a></span><span class="op">(</span><span class="st">"v2x_veracc_osp"</span>, <span class="va">states</span><span class="op">)</span>
 <span class="co">#&gt; Warning in ds_logistic_reg("v2x_veracc_osp", states): Discarding 40 incomplete</span>
 <span class="co">#&gt; feature set cases</span>
 <span class="co">#&gt; Warning in ds_logistic_reg("v2x_veracc_osp", states): Discarding 40 incomplete</span>
 <span class="co">#&gt; outcome set cases</span>
-<span class="va">preds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">mdl</span>, new_data <span class="op">=</span> <span class="va">states</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">preds</span><span class="op">)</span>
+<span class="va">preds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">mdl</span>, new_data <span class="op">=</span> <span class="va">states</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">preds</span><span class="op">)</span>
 <span class="co">#&gt;          outcome from_year   for_years gwcode       p_up    p_same     p_down</span>
 <span class="co">#&gt; 1 v2x_veracc_osp      1970 1971 - 1972      2 0.02847696 0.9612083 0.01061705</span>
 <span class="co">#&gt; 2 v2x_veracc_osp      1971 1972 - 1973      2 0.02074426 0.9689705 0.01050317</span>
@@ -117,9 +113,9 @@
 <span class="co">#&gt; 5 v2x_veracc_osp      1974 1975 - 1976      2 0.02514729 0.9650580 0.01004742</span>
 <span class="co">#&gt; 6 v2x_veracc_osp      1975 1976 - 1977      2 0.02246814 0.9629301 0.01493733</span></code></pre></div>
 </div>
-<div id="meta" class="section level2">
-<h2 class="hasAnchor">
-<a href="#meta" class="anchor"></a>Meta</h2>
+<div class="section level2">
+<h2 id="meta">Meta<a class="anchor" aria-label="anchor" href="#meta"></a>
+</h2>
 <p>There is a Makefile to help with stuff. E.g. to open that static docs:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">make</span> opendocs</span></code></pre></div>
 <p>To add new models, see the <code>add_new_model.R</code> script. It will use a template to setup the R and test files.</p>
@@ -129,36 +125,48 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Andreas Beger <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1883-3169" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/vdeminstitute/demspacesR/actions"><img src="https://github.com/vdeminstitute/demspacesR/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://codecov.io/gh/vdeminstitute/demspacesR?branch=main"><img src="https://codecov.io/gh/vdeminstitute/demspacesR/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="authors.html#citation">Citing demspacesR</a></li>
 </ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Andreas Beger <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1883-3169" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/vdeminstitute/demspacesR/actions" class="external-link"><img src="https://github.com/vdeminstitute/demspacesR/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://codecov.io/gh/vdeminstitute/demspacesR?branch=main" class="external-link"><img src="https://codecov.io/gh/vdeminstitute/demspacesR/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Andreas Beger.</p>
+  <p></p>
+<p>Developed by Andreas Beger.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -166,6 +174,8 @@
 
   
 
+
+  
 
   </body>
 </html>
