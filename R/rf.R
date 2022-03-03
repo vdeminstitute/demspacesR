@@ -5,6 +5,8 @@
 #' normalizes input data before fitting and predicting.
 #'
 #' @template ds_model
+#' @param mtry see [ranger::ranger()]; if NULL, this will be tuned via
+#'   out-of-bag error (see "ds_rf_tuner" in the source code in "rf.R").
 #' @param ... other arguments passed to [ranger::ranger()]
 #'
 #' @examples
@@ -14,7 +16,7 @@
 #' preds <- predict(mdl, new_data = states)
 #'
 #' @export
-ds_rf <- function(space, data, ...) {
+ds_rf <- function(space, data, mtry = NULL, ...) {
 
   full_data <- data
   yname <- space
@@ -51,8 +53,8 @@ ds_rf <- function(space, data, ...) {
 
   }
 
-  up_mdl   <- ds_rf_tuner(x = train_x, y = train_data[, ynameup], ...)
-  down_mdl <- ds_rf_tuner(x = train_x, y = train_data[, ynamedown], ...)
+  up_mdl   <- ds_rf_tuner(x = train_x, y = train_data[, ynameup], mtry, ...)
+  down_mdl <- ds_rf_tuner(x = train_x, y = train_data[, ynamedown], mtry, ...)
 
   new_ds_rf(up_mdl, down_mdl, space)
 }
@@ -60,17 +62,23 @@ ds_rf <- function(space, data, ...) {
 #' Wrapper to only tune mtry
 #' Based on tunerf results
 #' @keywords internal
-ds_rf_tuner <- function(x, y, ...) {
-  mtry_grid <- c(5, 7, 10, 15, 20, 25, 30, 40, 50, 60, 70, 85, 100)
+ds_rf_tuner <- function(x, y, mtry, ...) {
 
-  # cannot have mtry values greater than # of features
-  mtry_grid <- mtry_grid[mtry_grid < ncol(x)]
-  cost <- rep(NA_real_, length(mtry_grid))
-  for (i in seq_len(length(mtry_grid))) {
-    mdl <- rf(x, y, mtry = mtry_grid[i], ...)
-    cost[i] <- mdl$model$prediction.error
+  if (is.null(mtry)) {
+    mtry_grid <- c(5, 7, 10, 15, 20, 25, 30, 40, 50, 60, 70, 85, 100)
+
+    # cannot have mtry values greater than # of features
+    mtry_grid <- mtry_grid[mtry_grid < ncol(x)]
+    cost <- rep(NA_real_, length(mtry_grid))
+    for (i in seq_len(length(mtry_grid))) {
+      mdl <- rf(x, y, mtry = mtry_grid[i], ...)
+      cost[i] <- mdl$model$prediction.error
+    }
+    mtry_final <- mtry_grid[which.min(cost)]
+  } else {
+    mtry_final <- mtry
   }
-  mtry_final <- mtry_grid[which.min(cost)]
+
   rf(x, y, mtry = mtry_final, ...)
 }
 

@@ -4,7 +4,7 @@
 \alias{ds_rf}
 \title{Random forest}
 \usage{
-ds_rf(space, data, ...)
+ds_rf(space, data, mtry = NULL, ...)
 }
 \arguments{
 \item{space}{(\code{character(1)}) \cr
@@ -12,6 +12,9 @@ Name of the V-Dem indicator for a democratic space}
 
 \item{data}{(\code{\link[base:data.frame]{base::data.frame()}})
 A data frame or similar object}
+
+\item{mtry}{see \code{\link[ranger:ranger]{ranger::ranger()}}; if NULL, this will be tuned via
+out-of-bag error (see "ds_rf_tuner" in the source code in "rf.R").}
 
 \item{...}{other arguments passed to \code{\link[ranger:ranger]{ranger::ranger()}}}
 }

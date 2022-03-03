@@ -5,7 +5,7 @@
 \title{Wrapper to only tune mtry
 Based on tunerf results}
 \usage{
-ds_rf_tuner(x, y, ...)
+ds_rf_tuner(x, y, mtry, ...)
 }
 \description{
 Wrapper to only tune mtry

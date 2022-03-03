@@ -17,19 +17,15 @@ test_that("rf works", {
 })
 
 test_that("predict.rf works", {
-
   mdl <- rf(credit_features, credit_data$Status)
-
   expect_error(
     preds <- predict(mdl, new_data = credit_data),
     NA
   )
-
   expect_equal(
     colnames(preds),
     paste0("p_", levels(credit_data$Status))
   )
-
 })
 
 
@@ -39,21 +35,30 @@ states <- states %>%
 
 
 test_that("ds_rf work", {
-
   expect_error(
     mdl <- ds_rf("v2x_veracc_osp", states),
     NA
   )
-
 })
 
 test_that("predict.ds_rf works", {
-
   mdl <- ds_rf("v2x_veracc_osp", states)
-
   expect_error(
     preds <- predict(mdl, new_data = states),
     NA
   )
-
 })
+
+test_that("sidestepping mtry tuning works", {
+  expect_error(
+    mdl <- ds_rf("v2x_veracc_osp", states, mtry = 3),
+    NA
+  )
+  expect_true(mdl$up_mdl$model$mtry==3)
+  expect_error(
+    mdl <- ds_rf("v2x_veracc_osp", states, mtry = 4),
+    NA
+  )
+  expect_true(mdl$up_mdl$model$mtry==4)
+})
+
