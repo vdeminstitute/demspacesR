@@ -1,3 +1,9 @@
+# demspacesR 0.4
+
+Development during the spring 2022 update.
+
+- Added positive rates to `score_ds_fcast()`. Helpful for interpreting the AUC-ROC and AUC-PR values. 
+
 # demspacesR 0.3
 
 Development in February 2021. 

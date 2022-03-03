@@ -39,6 +39,8 @@ score_ds_fcast <- function(x, truth_data) {
 
   suppressWarnings({
   stats <- list(
+    "Pos-rate up"   = mean(x$up=="1",   na.rm = TRUE),
+    "Pos-rate down" = mean(x$down=="1", na.rm = TRUE),
     "Log-loss up"   = safe_mn_log_loss(x$up, x$p_up),
     "Log-loss down" = safe_mn_log_loss(x$down, x$p_down),
     "ROC-AUC up"   = safe_roc_auc(x$up, x$p_up),
