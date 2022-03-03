@@ -1,4 +1,4 @@
-# demspacesR dev
+# demspacesR 0.3
 
 Development in February 2021. 
 
