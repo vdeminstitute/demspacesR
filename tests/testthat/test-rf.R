@@ -41,14 +41,6 @@ test_that("ds_rf work", {
   )
 })
 
-test_that("predict.ds_rf works", {
-  mdl <- ds_rf("v2x_veracc_osp", states)
-  expect_error(
-    preds <- predict(mdl, new_data = states),
-    NA
-  )
-})
-
 test_that("sidestepping mtry tuning works", {
   expect_error(
     mdl <- ds_rf("v2x_veracc_osp", states, mtry = 3),
@@ -60,5 +52,26 @@ test_that("sidestepping mtry tuning works", {
     NA
   )
   expect_true(mdl$up_mdl$model$mtry==4)
+})
+
+
+# predict.ds_rf method -------------------------------------------------------
+
+mdl <- ds_rf("v2x_veracc_osp", states)
+
+test_that("predict.ds_rf works", {
+  expect_error(
+    preds <- predict(mdl, new_data = states),
+    NA
+  )
+})
+
+test_that("unlikely forecast adjustment (#15) works", {
+  preds <- predict(mdl, new_data = states, cutpoint = 0.1)
+
+  # make sure all "impossible" predictions are now 0
+  expect_setequal(preds$p_down[states$v2x_veracc_osp < 0.1], 0)
+  expect_setequal(preds$p_up[states$v2x_veracc_osp > (1 - 0.1)], 0)
+
 })
 

@@ -95,9 +95,20 @@ new_ds_rf <- function(up_mdl, down_mdl, yname) {
   )
 }
 
+#' Predict Method for DS random forest model
+#'
+#' Create opening and closing predictions for a fitted [ds_rf()] model.
+#'
+#' @param object a fitted [ds_rf()] model
+#' @param new_data predictor data
+#' @param cutpoint optional cutpoint used to adjust forecasts, see details
+#' @param ... not used
+#'
+#' @details The "cutpoints" argument can optionally be used to adjust the raw
+#'
 #' @export
 #' @importFrom stats predict
-predict.ds_rf <- function(object, new_data, ...) {
+predict.ds_rf <- function(object, new_data, cutpoint = NULL, ...) {
 
   if (any(!c("gwcode", "year") %in% names(new_data))) {
     stop("'new_data' must contain 'gwcode' and 'year' columns")
@@ -109,6 +120,16 @@ predict.ds_rf <- function(object, new_data, ...) {
 
   p_up     <- predict(up_mdl,   new_data = new_data)[["p_1"]]
   p_down   <- predict(down_mdl, new_data = new_data)[["p_1"]]
+
+  # adjust raw forecasts to eliminate unlikely events (#15)
+  if (!is.null(cutpoint)) {
+    up_idx <- new_data[[yname]] > (1 - cutpoint)
+    down_idx <- new_data[[yname]] < cutpoint
+
+    p_up[up_idx] <- 0
+    p_down[down_idx] <- 0
+  }
+
   p_same   <- (1 - p_up) * (1 - p_down)
 
   fcast <- data.frame(

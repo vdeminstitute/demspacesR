@@ -4,6 +4,7 @@ Development during the spring 2022 update.
 
 - Added positive rates to `score_ds_fcast()`. Helpful for interpreting the AUC-ROC and AUC-PR values. 
 - Allow sidestepping of the "mtry" tuning in `ds_rf()`. In the last version, "mtry" was auto-tuned over a grid of 13 potential values. I added a "mtry" argument to `ds_rf()` that allows sidestepping this tuning process with a hard coded value instead. This is to make ad-hoc modeling and tuning experiments quicker and easier.
+- Add optional "cutpoint" argument to `predict.ds_rf()` that allows setting impossible forecasts to 0. For example, Tunisia in an earlier version of the forecasts had a high risk for Governing opening event, even though it's Governing space score was so high already that given the cutpoint used for that space, no opening even was actually possible. (https://github.com/vdeminstitute/demspaces/issues/15)
 
 # demspacesR 0.3
 
