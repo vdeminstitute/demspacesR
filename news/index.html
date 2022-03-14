@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">demspacesR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.1</span>
       </span>
     </div>
 
@@ -56,6 +56,7 @@
 <p>Development during the spring 2022 update.</p>
 <ul><li>Added positive rates to <code><a href="../reference/score_ds_fcast.html">score_ds_fcast()</a></code>. Helpful for interpreting the AUC-ROC and AUC-PR values.</li>
 <li>Allow sidestepping of the “mtry” tuning in <code><a href="../reference/ds_rf.html">ds_rf()</a></code>. In the last version, “mtry” was auto-tuned over a grid of 13 potential values. I added a “mtry” argument to <code><a href="../reference/ds_rf.html">ds_rf()</a></code> that allows sidestepping this tuning process with a hard coded value instead. This is to make ad-hoc modeling and tuning experiments quicker and easier.</li>
+<li>Add optional “cutpoint” argument to <code><a href="../reference/predict.ds_rf.html">predict.ds_rf()</a></code> that allows setting impossible forecasts to 0. For example, Tunisia in an earlier version of the forecasts had a high risk for Governing opening event, even though it’s Governing space score was so high already that given the cutpoint used for that space, no opening even was actually possible. (<a href="https://github.com/vdeminstitute/demspaces/issues/15" class="external-link uri">https://github.com/vdeminstitute/demspaces/issues/15</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3" id="demspacesr-03">demspacesR 0.3<a class="anchor" aria-label="anchor" href="#demspacesr-03"></a></h2>
