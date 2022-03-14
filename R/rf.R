@@ -43,9 +43,10 @@ ds_rf <- function(space, data, mtry = NULL, ...) {
   }
 
   # Check for missing values and subset;
-  if (any(is.na(full_data[, ynamedown]), is.na(full_data[, ynameup]))) {
+  mssng_dv <- c(is.na(full_data[, ynamedown]), is.na(full_data[, ynameup]))
+  if (any(mssng_dv)) {
     warning(sprintf("Discarding %s incomplete outcome set cases",
-                    sum(!keep_idx)))
+                    sum(mssng_dv)))
 
     keep_idx <- stats::complete.cases(train_data)
     train_data <- train_data[keep_idx, ]
